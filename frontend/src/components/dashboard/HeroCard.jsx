@@ -2,10 +2,6 @@ import { Wifi } from "lucide-react";
 import { Card, SectionHeading } from "../ui";
 import { currency } from "../../lib/format";
 
-/**
- * The "credit-card" hero from the reference, repurposed for the CRM: a green
- * gradient card surfacing total Pipeline Value with account-style framing.
- */
 export function HeroCard({ value = 0, label = "Pipeline value" }) {
   return (
     <Card className="p-6">

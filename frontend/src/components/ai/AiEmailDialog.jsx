@@ -4,10 +4,6 @@ import { Dialog, Button, Field, Select, Textarea, Spinner } from "../ui";
 import { aiApi } from "../../lib/services";
 import { toast } from "sonner";
 
-/**
- * AI email generator dialog. Given a lead, asks Gemini to draft a subject +
- * body for a chosen purpose & tone. The draft is editable before copying.
- */
 export function AiEmailDialog({ open, onClose, lead }) {
   const [purpose, setPurpose] = useState("Follow-up");
   const [tone, setTone] = useState("Friendly & professional");
@@ -18,7 +14,11 @@ export function AiEmailDialog({ open, onClose, lead }) {
   const generate = async () => {
     setLoading(true);
     try {
-      const res = await aiApi.generateEmail({ leadId: lead._id, purpose, tone });
+      const res = await aiApi.generateEmail({
+        leadId: lead._id,
+        purpose,
+        tone,
+      });
       setDraft({ subject: res.subject, body: res.body });
     } catch (err) {
       toast.error(err.message || "Could not generate email");
@@ -44,11 +44,15 @@ export function AiEmailDialog({ open, onClose, lead }) {
       <div className="grid grid-cols-2 gap-3">
         <Field label="Purpose">
           <Select value={purpose} onChange={(e) => setPurpose(e.target.value)}>
-            {["Follow-up", "Sales pitch", "Meeting request", "Re-engagement", "Thank you"].map(
-              (p) => (
-                <option key={p}>{p}</option>
-              )
-            )}
+            {[
+              "Follow-up",
+              "Sales pitch",
+              "Meeting request",
+              "Re-engagement",
+              "Thank you",
+            ].map((p) => (
+              <option key={p}>{p}</option>
+            ))}
           </Select>
         </Field>
         <Field label="Tone">
@@ -66,7 +70,8 @@ export function AiEmailDialog({ open, onClose, lead }) {
       </div>
 
       <Button className="mt-4 w-full" onClick={generate} loading={loading}>
-        <Wand2 className="h-4 w-4" /> {draft ? "Regenerate draft" : "Generate email"}
+        <Wand2 className="h-4 w-4" />{" "}
+        {draft ? "Regenerate draft" : "Generate email"}
       </Button>
 
       {loading && <Spinner />}
@@ -89,7 +94,11 @@ export function AiEmailDialog({ open, onClose, lead }) {
           </Field>
           <div className="flex justify-end gap-2">
             <Button variant="outline" onClick={copy}>
-              {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+              {copied ? (
+                <Check className="h-4 w-4" />
+              ) : (
+                <Copy className="h-4 w-4" />
+              )}
               {copied ? "Copied" : "Copy"}
             </Button>
           </div>

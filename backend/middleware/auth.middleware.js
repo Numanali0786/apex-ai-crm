@@ -6,7 +6,6 @@ import jwt from "jsonwebtoken";
 export const protect = asyncHandler(async (req, res, next) => {
   let token;
   const header = req.headers.authorization;
-  // console.log(header);
 
   if (header && header.startsWith("Bearer ")) {
     token = header.split(" ")[1];
@@ -16,17 +15,10 @@ export const protect = asyncHandler(async (req, res, next) => {
   }
 
   let decoded;
-  // console.log(
-  //   "testttttttttt",
-  //   token,
-  //   process.env.JWT_SECRET,
-  //   jwt.verify(token, process.env.JWT_SECRET),
-  // );
+
   try {
     decoded = jwt.verify(token, process.env.JWT_SECRET);
-    // console.log(token);
   } catch {
-    // console.log(decoded);
     throw new ApiError(401, "Not authorized, token invalid or expired");
   }
 
