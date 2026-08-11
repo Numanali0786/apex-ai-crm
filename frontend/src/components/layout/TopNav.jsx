@@ -78,7 +78,7 @@ export function TopNav({ onMenuClick }) {
       {}
       <div className="ml-auto flex items-center gap-2">
         <IconButton aria-label="Search" className="hidden sm:inline-flex">
-          <Search className="h-[18px] w-[18px]" />
+          <Search className="h-[18px] w-4.5" />
         </IconButton>
         <IconButton aria-label="Notifications" className="relative">
           <Bell className="h-[18px] w-[18px]" />

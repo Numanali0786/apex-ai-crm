@@ -4,13 +4,6 @@ import { IconRail } from "./IconRail";
 import { TopNav } from "./TopNav";
 import { Sidebar } from "./Sidebar";
 
-/**
- * Authenticated app shell matching the reference fintech dashboard:
- *  - a floating icon-only rail on the left (desktop)
- *  - a labelled slide-in drawer on mobile
- *  - a floating top nav (brand + centered link pill + actions)
- *  - an airy, scrollable content region.
- */
 export function AppLayout() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
