@@ -100,7 +100,7 @@ export default function Dashboard() {
           <span className="text-ink-soft">{user?.name?.split(" ")[0]}</span>
         </h1>
         <div className="flex items-center gap-3">
-          <div className="hidden items-center gap-2 rounded-full bg-surface px-4 py-2.5 text-sm font-medium text-ink-soft shadow-[var(--shadow-soft)] sm:flex">
+          <div className="hidden items-center gap-2 rounded-full bg-surface px-4 py-2.5 text-sm font-medium text-ink-soft shadow-(--shadow-soft) sm:flex">
             <CalendarRange className="h-4 w-4" />
             {rangeLabel}
           </div>
@@ -605,7 +605,7 @@ function BalanceChart({ trend }) {
 function ChartTooltip({ active, payload, label, prefix = "", unit = "" }) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="rounded-xl border border-line bg-surface px-3 py-2 shadow-[var(--shadow-pop)]">
+    <div className="rounded-xl border border-line bg-surface px-3 py-2 shadow-(--shadow-pop)">
       <p className="text-xs font-medium text-ink-soft">{label}</p>
       <p className="text-sm font-semibold text-ink">
         {prefix}
