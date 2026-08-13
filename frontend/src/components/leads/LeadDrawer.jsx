@@ -69,7 +69,7 @@ export function LeadDrawer({ open, onClose, lead, onEdit, onDelete }) {
         </div>
 
         {}
-        <div className="mt-5 rounded-2xl bg-surface p-4 shadow-[var(--shadow-soft)]">
+        <div className="mt-5 rounded-2xl bg-surface p-4 shadow-(--shadow-soft)">
           <p className="text-xs uppercase tracking-wide text-ink-soft">
             Deal value
           </p>
@@ -90,7 +90,7 @@ export function LeadDrawer({ open, onClose, lead, onEdit, onDelete }) {
         </div>
 
         {lead.notes && (
-          <div className="mt-4 rounded-2xl bg-surface p-4 shadow-[var(--shadow-soft)]">
+          <div className="mt-4 rounded-2xl bg-surface p-4 shadow-(--shadow-soft)">
             <p className="text-xs font-medium uppercase tracking-wide text-ink-soft">
               Notes
             </p>
