@@ -86,7 +86,6 @@ export default function Dashboard() {
   const stats = data?.stats || {};
   console.log(user, data, contacts, leads, tasks, range);
 
-  // A friendly trailing date-range label for the header pill.
   const today = new Date();
   const start = new Date(today.getFullYear(), today.getMonth() - 5, 1);
   const rangeLabel = `${format(start, "dd MMM")} – ${format(today, "dd MMM, yyyy")}`;
@@ -113,8 +112,6 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Balanced 3-column composition — cards distributed so the columns end
-          at roughly the same height, leaving no large vertical gaps. */}
       <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-12">
         {}
         <div className="space-y-5 lg:col-span-3">
@@ -289,7 +286,6 @@ function PipelineByStage({ pipeline, className }) {
 }
 
 function LeadsBySource({ leads }) {
-  // Group leads by their source field.
   const grouped = leads.reduce((acc, l) => {
     const key = l.source || "Other";
     acc[key] = (acc[key] || 0) + 1;
