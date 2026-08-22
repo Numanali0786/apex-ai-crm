@@ -29,7 +29,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 app.get("/api/health", (req, res) =>
-  res.json({ success: true, status: "ok", service: "TTP CRM API" }),
+  res.json({ success: true, status: "ok", service: "APEX AI API" }),
 );
 
 app.use("/api/auth", authRoutes);
